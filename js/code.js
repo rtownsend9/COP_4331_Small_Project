@@ -95,12 +95,9 @@ function doSignup()
 		
 				if( userId < 1 )
 				{		
-					document.getElementById("signupResult").innerHTML = "User/Password combination incorrect";
+					document.getElementById("signupResult").innerHTML = "Username is already taken";
 					return;
 				}
-		
-				firstName = jsonObject.firstName;
-				lastName = jsonObject.lastName;
 
 				saveCookie();
 	

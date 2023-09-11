@@ -11,7 +11,7 @@ function doLogin()
 	firstName = "";
 	lastName = "";
 	
-	let login = document.getElementById("loginEmail").value;
+	let login = document.getElementById("loginUser").value;
 	let password = document.getElementById("loginPassword").value;
 	
 	document.getElementById("loginResult").innerHTML = "";
@@ -62,8 +62,9 @@ function doSignup()
 	firstName = "";
 	lastName = "";
 	
-	let name = document.getElementById("signupName").value;
-	let email = document.getElementById("signupEmail").value;
+	let firstName = document.getElementById("signupFirstName").value;
+	let lastName = document.getElementById("signupLastName").value;
+	let username = document.getElementById("signupUser").value;
 	let password = document.getElementById("signupPassword").value;
 	let confirmPassword = document.getElementById("signupConfirmPassword").value;
 	
@@ -75,7 +76,7 @@ function doSignup()
 		return;
 	}
 
-	let tmp = {name:name,password:password};
+	let tmp = {firstName:firstName, lastName:lastName, username:username, password:password};
 	let jsonPayload = JSON.stringify( tmp );
 	
 	let url = urlBase + '/Signup.' + extension;

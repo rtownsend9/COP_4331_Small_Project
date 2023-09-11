@@ -4,6 +4,7 @@
       <meta charset="utf-8">
       <title>Some Domain Name</title>
       <link rel="stylesheet" href="/css/styles.css">
+	  <script src="/js/code.js"></script>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
    </head>
    <body>
@@ -26,28 +27,30 @@
             </div>
             <div class="form-inner">
                <form action="#" class="login">
-                  <div class="field">
-                     <input type="text" placeholder="yourEmail@email.com" required>
+				  <span id="loginResult"></span>
+                  <div class="field" id="loginEmail">
+                     <input type="text" placeholder="yourEmail@email.com" id="loginEmail" required>
                   </div>
-                  <div class="field">
-                     <input type="password" placeholder="Super Secret Password" required>
+                  <div class="field" id="loginPassword">
+                     <input type="password" placeholder="Super Secret Password" id="loginPassword" required>
                   </div>
                   <div class="field btn">
                      <div class="btn-layer"></div>
-                     <input type="submit" value="Login">
+                     <input type="submit" value="Login" onclick="doLogin()">
                   </div>
                </form>
                <form action="#" class="signup">
-                  <div class="field">
+				  <span id="signupResult"></span>
+                  <div class="field" id="signupName">
                      <input type="text" placeholder="Your Name" required>
                   </div>
-                  <div class ="field">
- <input type="text" placeholder="yourEmail@email.com" required>
+                  <div class ="field" id="signupEmail">
+                     <input type="text" placeholder="yourEmail@email.com" required>
                   </div>
-                  <div class="field">
+                  <div class="field" id="signupPassword">
                      <input type="password" placeholder="Super Secret Password" required>
                   </div>
-                  <div class="field">
+                  <div class="field" id="signupConfirmPassword">
                      <input type="password" placeholder="Confirm Super Secret Password" required>
                   </div>
                   <div class="field btn">

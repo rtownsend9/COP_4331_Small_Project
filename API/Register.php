@@ -1,25 +1,20 @@
 <?php
 	$inData = getRequestInfo();
 	
-	//$color = $inData["color"];
-	//$userId = $inData["userId"];
-    $firstname = $inData["firstname"];
-    $lastname = $inData["lastname"];
-    $login = $inData["login"];
-    $password = $inData["password"];
+	$firstName = $inData["firstName"];
+	$lastName = $inData["lastName"];
+	$login = $inData["login"];
+	$password = $inData["password"];
 
-
-	$conn = new mysqli("localhost", "username", "password", "database");
+	$conn = new mysqli("localhost", "TheBeast", "WeLoveCOP4331", "COP4331");
 	if ($conn->connect_error) 
 	{
 		returnWithError( $conn->connect_error );
 	} 
 	else
 	{
-        //$stmt = $conn->prepare("INSERT into Colors (UserId,Name) VALUES(?,?)");
-		//$stmt->bind_param("ss", $userId, $color);
-        $stmt = $conn->prepare("INSERT into Users (firstName, lastName, Login, Password) VALUES(?,?,?,?)");
-        $stmt->bind_param("ss", $firstname, $lastname, $login, $password);
+		$stmt = $conn->prepare("INSERT into Users (FirstName,LastName,Login,Password)  VALUES(?,?,?,?)");
+		$stmt->bind_param("ssss", $firstName, $lastName, $login, $password);
 		$stmt->execute();
 		$stmt->close();
 		$conn->close();

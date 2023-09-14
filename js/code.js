@@ -58,13 +58,9 @@ function doLogin()
 
 function doSignup()
 {
-	userId = 0;
-	firstName = "";
-	lastName = "";
-	
-	let firstName = document.getElementById("signupFirstName").value;
-	let lastName = document.getElementById("signupLastName").value;
-	let username = document.getElementById("signupUser").value;
+	let firstNameTmp = document.getElementById("signupFirstName").value;
+	let lastNameTmp = document.getElementById("signupLastName").value;
+	let login = document.getElementById("signupUser").value;
 	let password = document.getElementById("signupPassword").value;
 	let confirmPassword = document.getElementById("signupConfirmPassword").value;
 	
@@ -76,10 +72,12 @@ function doSignup()
 		return;
 	}
 
-	let tmp = {firstName:firstName, lastName:lastName, username:username, password:password};
+	let tmp = {firstName:firstNameTmp, lastName:lastNameTmp, login:login, password:password};
 	let jsonPayload = JSON.stringify( tmp );
+
+	console.log(jsonPayload);
 	
-	let url = urlBase + '/Signup.' + extension;
+	let url = urlBase + '/Register.' + extension;
 
 	let xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
@@ -90,6 +88,7 @@ function doSignup()
 		{
 			if (this.readyState == 4 && this.status == 200) 
 			{
+				console.log("we made it!!!");
 				let jsonObject = JSON.parse( xhr.responseText );
 				userId = jsonObject.id;
 		
@@ -99,6 +98,8 @@ function doSignup()
 					return;
 				}
 
+				firstName = firstNameTmp;
+				lastName = lastNameTmp;
 				saveCookie();
 	
 				window.location.href = "contact.html";

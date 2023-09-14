@@ -2,9 +2,8 @@
 <html lang="en" dir="ltr">
    <head>
       <meta charset="utf-8">
-      <title>Some Domain Name</title>
+      <title>Twenty Thousand Contacts</title>
       <link rel="stylesheet" href="/css/styles.css">
-	  <script src="/js/code.js"></script>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
    </head>
    <body>
@@ -26,35 +25,35 @@
                <div class="slider-tab"></div>
             </div>
             <div class="form-inner">
-               <form action="#" class="login">
+               <form class="login" id="loginForm" onsubmit="return false">
 				  <span id="loginResult"></span>
-                  <div class="field" id="loginUser">
-                     <input type="text" placeholder="Username" required>
+                  <div class="field">
+                     <input type="text" id="loginUser" placeholder="Username" required>
                   </div>
-                  <div class="field" id="loginPassword">
-                     <input type="password" placeholder="Super Secret Password" required>
+                  <div class="field">
+                     <input type="password" id="loginPassword" placeholder="Super Secret Password" required>
                   </div>
                   <div class="field btn">
                      <div class="btn-layer"></div>
                      <input type="submit" value="Login" onclick="doLogin()">
                   </div>
                </form>
-               <form action="#" class="signup">
+               <form class="signup" id="signupForm" onsubmit="return false">
 				  <span id="signupResult"></span>
-                  <div class="field" id="signupFirstName">
-                     <input type="text" placeholder="Your First Name" required>
+                  <div class="field">
+                     <input type="text" id="signupFirstName" placeholder="Your First Name" required>
                   </div>
-				  <div class="field" id="signupLastName">
-                     <input type="text" placeholder="Your Last Name" required>
+				  <div class="field">
+                     <input type="text" id="signupLastName" placeholder="Your Last Name" required>
                   </div>
-                  <div class ="field" id="signupUser">
-                     <input type="text" placeholder="Desired Username" required>
+                  <div class ="field">
+                     <input type="text" id="signupUser" placeholder="Desired Username" required>
                   </div>
-                  <div class="field" id="signupPassword">
-                     <input type="password" placeholder="Super Secret Password" required>
+                  <div class="field">
+                     <input type="password" id="signupPassword" placeholder="Super Secret Password" required>
                   </div>
-                  <div class="field" id="signupConfirmPassword">
-                     <input type="password" placeholder="Confirm Super Secret Password" required>
+                  <div class="field">
+                     <input type="password" id="signupConfirmPassword" placeholder="Confirm Super Secret Password" required>
                   </div>
                   <div class="field btn">
                      <div class="btn-layer"></div>
@@ -83,6 +82,7 @@
            return false;
          });
       </script>
+	  <script src="/js/code.js"></script>
    </body>
 </html>
                                

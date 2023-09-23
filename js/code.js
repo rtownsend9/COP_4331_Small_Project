@@ -1,4 +1,4 @@
-const urlBase = 'http://174.138.117.250/LAMPAPI';
+const urlBase = 'http://138.197.34.2/LAMPAPI';
 const extension = 'php';
 
 let userId = 0;
@@ -198,9 +198,7 @@ function addContact()
 function searchContact()
 {
 	let srch = document.getElementById("searchText").value;
-	document.getElementById("contactSearchResult").innerHTML = "";
-	
-	let contactList = "";
+	var table = document.getElementById("contactTable");
 
 	let tmp = {search:srch,userId:userId};
 	let jsonPayload = JSON.stringify( tmp );
@@ -219,16 +217,21 @@ function searchContact()
 				document.getElementById("contactSearchResult").innerHTML = "Contact(s) has been retrieved";
 				let jsonObject = JSON.parse( xhr.responseText );
 				
+				var tableBody = document.getElementById('contactTableBody'); 
+				tableBody.innerHTML = '';
+
 				for( let i=0; i<jsonObject.results.length; i++ )
 				{
-					contactList += jsonObject.results[i];
-					if( i < jsonObject.results.length - 1 )
-					{
-						contactList += "<br />\r\n";
-					}
+					let tr = document.createElement("tr");
+					let vals = Object.values(item);
+
+					vals.forEach((elem) => {
+						let td = document.createElement("td");
+						td.innerText = elem;
+						tr.appendChild(td);
+					});
+					table.appendChild(tr);
 				}
-				
-				document.getElementsByTagName("p")[0].innerHTML = contactList;
 			}
 		};
 		xhr.send(jsonPayload);

@@ -9,7 +9,7 @@
    <script type="text/javascript">
       document.addEventListener(
          "DOMContentLoaded",
-         function () {
+         function() {
             readCookie();
             searchContact();
          },
@@ -43,22 +43,22 @@
          <form>
             <div class="m-2">
                <label class="form-label m-2" required>First Name:</label>
-               <input type="text" class="form-control">
+               <input type="text" class="form-control" id="addFirstName">
             </div>
             <div class="m-2">
                <label class="form-label m-2" required>Last Name:</label>
-               <input type="text" class="form-control">
+               <input type="text" class="form-control" id="addLastName">
             </div>
             <div class="m-2">
                <label class="form-label m-2" required>Email:</label>
-               <input type="email" class="form-control">
+               <input type="email" class="form-control" id="addEmail">
             </div>
             <div class="m-2">
                <label class="form-label m-2" required>Phone Number:</label>
-               <input type="tel" class="form-control">
+               <input type="tel" class="form-control" id="addPhone">
             </div>
 
-            <button class="btn btn-primary w-100">Add Contact</button>
+            <button class="btn btn-primary w-100" onclick="addContact()">Add Contact</button>
          </form>
       </nav>
    </header>

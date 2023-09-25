@@ -13,12 +13,25 @@
 	} 
 	else
 	{
-		$stmt = $conn->prepare("INSERT into Users (FirstName,LastName,Login,Password)  VALUES(?,?,?,?)");
-		$stmt->bind_param("ssss", $firstName, $lastName, $login, $password);
+		$stmt = $conn->prepare("SELECT * FROM Users WHERE Login = ?");
+		$stmt->bind_param("s", $login);
 		$stmt->execute();
-		$stmt->close();
-		$conn->close();
-		returnWithError("");
+		$result = $stmt->get_result();
+		$numrows = mysqli_num_rows($result);
+
+		if ($numrows == 0)
+		{
+			$stmt = $conn->prepare("INSERT into Users (FirstName,LastName,Login,Password)  VALUES(?,?,?,?)");
+			$stmt->bind_param("ssss", $firstName, $lastName, $login, $password);
+			$stmt->execute();
+			$stmt->close();
+			$conn->close();
+			returnWithError("");
+		}
+		else
+		{
+			returnWithError("Username already taken.");
+		}
 	}
 
 	function getRequestInfo()

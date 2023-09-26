@@ -309,8 +309,6 @@ function searchContact() {
 }
 
 function addContactPanel() {
-	contactForm = document.getElementById("contact-form");
-	contactForm.setAttribute("onsubmit", "addContact();return false");
 	contactPanel = document.getElementById("contact-panel");
 	contactPanel.style.display = "block";
 	sidebarTitle = document.getElementById("sidebar-title");
@@ -329,8 +327,6 @@ function addContactPanel() {
 }
 
 function editContactPanel(editButton) {
-	contactForm = document.getElementById("contact-form");
-
 	contactPanel = document.getElementById("contact-panel");
 	contactPanel.style.display = "block";
 	sidebarTitle = document.getElementById("sidebar-title");

@@ -24,7 +24,7 @@
          <div class="row">
             <nav id="headerMenu" class="navbar navbar-expand-lg navbar-dark bg-dark">
                <div class="container-fluid">
-                  <a href="#default" class="logo">Twenty Thousand Contacts</a>
+                  <a href="contact.html" class="logo">Twenty Thousand Contacts</a>
                   <ul class="navbar-nav">
                      <li class="nav-item m-1">
                         <div class="navbar-text">Search Contacts:</div>
@@ -34,6 +34,9 @@
                            <input id="contact-search" type="text" class="form-control"
                               placeholder="Search here..." onkeyup="searchContact()">
                         </form>
+                     </li>
+                     <li class="nav-item m-1">
+                        <button class="btn btn-primary" onclick="addContactPanel()">Add Contact</button>
                      </li>
                   </ul>
                   <ul class="navbar-nav">
@@ -48,32 +51,48 @@
             </nav>
          </div>
          <div class="row flex-nowrap">
-            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-secondary">
+            <div id="contact-panel" class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-secondary" style="display:none">
                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-                  <form id="add-contact" onsubmit="addContact()">
-                     <div class="m-2">
-                        <label class="form-label m-2" required>First Name:</label>
-                        <input type="text" class="form-control" id="add-first-name" required>
+                  <div class="card">
+                     <div class="card-body">
+                        <h1 class="card-title" id="sidebar-title">Create Contact</h1>
+                        <div class="card-text">
+                           <form id="contact-form" onsubmit="return false">
+                              <div class="m-2">
+                                 <label class="form-label m-2" required>First Name:</label>
+                                 <input type="text" class="form-control" id="form-first-name" required>
+                              </div>
+                              <div class="m-2">
+                                 <label class="form-label m-2" required>Last Name:</label>
+                                 <input type="text" class="form-control" id="form-last-name" required>
+                              </div>
+                              <div class="m-2">
+                                 <label class="form-label m-2" required>Phone Number:</label>
+                                 <input type="tel" class="form-control" id="form-phone" required>
+                              </div>
+                              <div class="m-2">
+                                 <label class="form-label m-2" required>Email:</label>
+                                 <input type="email" class="form-control" id="form-email" required>
+                              </div>
+         
+                              <div class="row pt-3">
+                                 <div class="col w-50">
+                                    <button class="btn btn-primary w-100" id="save-contact" onclick="addContact()">Create</button>
+                                 </div>
+                                 <div class="col w-50">
+                                    <button class="btn btn-primary w-100" id="cancel-contact" onclick="closeForm()">Cancel</button>
+                                 </div>
+                              </div>
+                           </form>
+                        </div>
                      </div>
-                     <div class="m-2">
-                        <label class="form-label m-2" required>Last Name:</label>
-                        <input type="text" class="form-control" id="add-last-name" required>
-                     </div>
-                     <div class="m-2">
-                        <label class="form-label m-2" required>Phone Number:</label>
-                        <input type="tel" class="form-control" id="add-phone" required>
-                     </div>
-                     <div class="m-2">
-                        <label class="form-label m-2" required>Email:</label>
-                        <input type="email" class="form-control" id="add-email" required>
-                     </div>
-
-                     <button type="submit" class="btn btn-primary w-100" onclick="addContact()">Add Contact</button>
-                  </form>
+                  </div>
                </div>
             </div>
             <div class="col py-3 bg-light">
-               <table class="table">
+               <div id="alert-spot">
+               </div>
+               <table class="table table-striped">
                   <thead>
                      <tr>
                         <th>First Name</th>
@@ -88,16 +107,14 @@
             </div>
          </div>
       </div>
-
-
-      <script src="/js/code.js"></script>
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-         crossorigin="anonymous"></script>
    </main>
-
+   <script src="/js/code.js"></script>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </body>
 
 </html>

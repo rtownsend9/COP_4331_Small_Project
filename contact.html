@@ -22,6 +22,22 @@
    <main>
       <div class="container-fluid">
          <div class="row">
+            <div class="modal fade" id="confirm-delete-modal" tabindex="-1" aria-labelledby="confirm-delete-header" aria-hidden="true">
+               <div class="modal-dialog">
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <h5 class="modal-title" id="confirm-delete-header">WAIT!!!</h5>
+                     </div>
+                     <div class="modal-body">
+                        <p>Are you sure you want to delete this contact? They'll be gone forever (a very long time)!</p>
+                     </div>
+                     <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" onclick="deleteContact()">Delete</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                     </div>
+                  </div>
+               </div>
+            </div>
             <nav id="headerMenu" class="navbar navbar-expand-lg navbar-dark bg-dark">
                <div class="container-fluid">
                   <a href="contact.html" class="logo">Twenty Thousand Contacts</a>
@@ -77,10 +93,10 @@
          
                               <div class="row pt-3">
                                  <div class="col w-50">
-                                    <button class="btn btn-primary w-100" id="save-contact" onclick="addContact()">Create</button>
+                                    <button type="button" class="btn btn-primary w-100" id="save-contact" onclick="addContact()">Create</button>
                                  </div>
                                  <div class="col w-50">
-                                    <button class="btn btn-primary w-100" id="cancel-contact" onclick="closeForm()">Cancel</button>
+                                    <button type="button" class="btn btn-primary w-100" id="cancel-contact" onclick="closeForm()">Cancel</button>
                                  </div>
                               </div>
                            </form>

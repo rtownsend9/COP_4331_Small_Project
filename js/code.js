@@ -213,7 +213,32 @@ function editContact() {
 }
 
 function deleteContact() {
+	let deleteModal = document.getElementById("confirm-delete-modal");
+	var deleteId = deleteModal.getAttribute("data-bs-id");
+	$('#confirm-delete-modal').modal('hide');
 
+	let tmp = { ID: deleteId };
+	let jsonPayload = JSON.stringify(tmp);
+
+	console.log(jsonPayload);
+
+	let url = urlBase + '/DeleteContact.' + extension;
+
+	let xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try {
+		xhr.onreadystatechange = function () {
+			if (this.readyState == 4 && this.status == 200) {
+				searchContact();
+				createAlert('alert-success', "Deleted contact");
+			}
+		};
+		xhr.send(jsonPayload);
+	}
+	catch (err) {
+		createAlert('alert-danger', "An error occurred while attempting to delete this contact");
+	}
 }
 
 function searchContact() {
@@ -266,7 +291,9 @@ function searchContact() {
 					tableDelete.setAttribute("id", "delete-button");
 					deleteButton = document.createElement("button");
 					deleteButton.setAttribute("class", "btn btn-primary bg-danger");
-					deleteButton.setAttribute("onclick", "deleteContact(this)");
+					deleteButton.setAttribute("data-bs-toggle", "modal");
+					deleteButton.setAttribute("data-bs-target", "#confirm-delete-modal");
+					deleteButton.setAttribute("data-bs-id", vals[vals.length - 1]);
 					deleteButton.innerHTML = "Delete";
 					tableDelete.appendChild(deleteButton);
 					tr.appendChild(tableDelete);
@@ -298,6 +325,7 @@ function addContactPanel() {
 	for (elem of formList) {
 		formElement = document.getElementById(elem);
 		formElement.value = "";
+		formElement.setAttribute("required", "true");
 	}
 }
 
@@ -320,14 +348,28 @@ function editContactPanel(editButton) {
 	for (var i = 0; i < formList.length; i++) {
 		formElement = document.getElementById(formList[i]);
 		formElement.value = tableChildren[i].innerText;
+		formElement.setAttribute("required", "true");
 	}
 }
 
 function closeForm() {
 	contactPanel = document.getElementById("contact-panel");
 	contactPanel.style.display = "none";
+	const formList = ["form-first-name", "form-last-name", "form-phone", "form-email"];
+	for (var i = 0; i < formList.length; i++) {
+		formElement = document.getElementById(formList[i]);
+		formElement.setAttribute("required", "false");
+	}
 }
 
 function createAlert(alertType, message) {
 	$('#alert-spot').html('<div class="alert ' + alertType + ' alert-dismissable" role="alert"><button class="btn-close me-3" aria-label="close" data-bs-dismiss="alert"></button>' + message + '</div>');
 }
+
+var deleteModal = document.getElementById('confirm-delete-modal');
+
+deleteModal.addEventListener('show.bs.modal', function (event) {
+  var button = event.relatedTarget;
+  var recipient = button.getAttribute('data-bs-id');
+	deleteModal.setAttribute('data-bs-id', recipient);
+});

@@ -1,0 +1,13 @@
+#edit-button button {
+  opacity: 0;
+}
+tr:hover #edit-button button {
+  opacity: 1;
+}
+
+#delete-button button {
+  opacity: 0;
+}
+tr:hover #delete-button button {
+  opacity: 1;
+}

@@ -217,10 +217,8 @@ function deleteContact() {
 	var deleteId = deleteModal.getAttribute("data-bs-id");
 	$('#confirm-delete-modal').modal('hide');
 
-	let tmp = { ID: deleteId };
+	let tmp = { contactID: deleteId };
 	let jsonPayload = JSON.stringify(tmp);
-
-	console.log(jsonPayload);
 
 	let url = urlBase + '/DeleteContact.' + extension;
 

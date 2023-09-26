@@ -309,12 +309,13 @@ function searchContact() {
 }
 
 function addContactPanel() {
+	contactForm = document.getElementById("contact-form");
+	contactForm.setAttribute("onsubmit", "addContact();return false");
 	contactPanel = document.getElementById("contact-panel");
 	contactPanel.style.display = "block";
 	sidebarTitle = document.getElementById("sidebar-title");
 	sidebarTitle.innerHTML = "Create Contact";
 	sidebarSave = document.getElementById("save-contact");
-	sidebarSave.innerHTML = "Create";
 	sidebarSave.setAttribute("onclick", "addContact()");
 	sidebarCancel = document.getElementById("cancel-contact");
 	sidebarCancel.innerHTML = "Cancel";
@@ -328,6 +329,8 @@ function addContactPanel() {
 }
 
 function editContactPanel(editButton) {
+	contactForm = document.getElementById("contact-form");
+
 	contactPanel = document.getElementById("contact-panel");
 	contactPanel.style.display = "block";
 	sidebarTitle = document.getElementById("sidebar-title");

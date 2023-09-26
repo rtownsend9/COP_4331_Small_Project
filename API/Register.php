@@ -24,9 +24,11 @@
 			$stmt = $conn->prepare("INSERT into Users (FirstName,LastName,Login,Password)  VALUES(?,?,?,?)");
 			$stmt->bind_param("ssss", $firstName, $lastName, $login, $password);
 			$stmt->execute();
+			$ID = mysqli_insert_id($conn);
+
+			returnWithInfo( $firstName, $lastName, $login, $password, $ID );
 			$stmt->close();
 			$conn->close();
-			returnWithError("");
 		}
 		else
 		{
@@ -48,6 +50,11 @@
 	function returnWithError( $err )
 	{
 		$retValue = '{"error":"' . $err . '"}';
+		sendResultInfoAsJson( $retValue );
+	}
+	function returnWithInfo( $firstName, $lastName, $login, $password, $id )
+	{
+		$retValue = '{"id":' . $id . ',"firstName":"' . $firstName . '","lastName":"' . $lastName . '", "username":"' . $login . '", "password":"' . $password . '", "error":""}';
 		sendResultInfoAsJson( $retValue );
 	}
 	

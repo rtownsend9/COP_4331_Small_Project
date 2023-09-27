@@ -3,10 +3,9 @@ html,body{
   height: 100%;
   width: 100%;
   place-items: center;
-  background: -webkit-linear-gradient(left, #FFA500, #FF0000);
-}
+ }
 ::selection{
-  background: #fa4458;
+  background: #23395B;
   color: #fff;
 }
 .wrapper{
@@ -61,7 +60,7 @@ html,body{
   left: 0;
   z-index: 0;
   border-radius: 5px;
-  background: -webkit-linear-gradient(left, #FFA500, #FF0000);
+ background: -webkit-linear-gradient(left, #CBF7ED, #23395B);
   transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
 }
 input[type="radio"]{
@@ -114,14 +113,14 @@ input[type="radio"]{
   transition: all 0.3s ease;
 }
 .form-inner form .field input:focus{
-  border-color: #FF0000;
+  border-color: #23395B;
 }
 .form-inner form .field input::placeholder{
   color: #999;
-  transition: all 0.3s ease;
+transition: all 0.3s ease;
 }
 form .field input:focus::placeholder{
-  color: #FF0000;
+  color: #000;
 }
 form .btn{
   height: 50px;
@@ -135,7 +134,7 @@ form .btn .btn-layer{
   width: 300%;
   position: absolute;
   left: -100%;
-  background: -webkit-linear-gradient(right, #a445b2, #fa4299, #a445b2, #fa4299);
+  background:-webkit-linear-gradient(right, #CBF7ED, #23395b, #CBF7ED, #23395b);
   border-radius: 5px;
   transition: all 0.4s ease;;
 }
@@ -156,4 +155,3 @@ form .btn:hover .btn-layer{
   font-weight: 500;
   cursor: pointer;
 }
-                        

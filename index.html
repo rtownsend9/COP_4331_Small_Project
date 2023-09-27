@@ -7,13 +7,16 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
    </head>
    <body>
+      <body background= "background1.jpg">
+      <body background-repeat =  no-repeat>
+      <body background-size = cover >
       <div class="wrapper">
          <div class="title-text">
             <div class="title login">
-               Please Login
+              Twenty Thousand Contacts
             </div>
             <div class="title signup">
-               Please Signup
+               Welcome To Twenty Thousand Contacts
             </div>
          </div>
          <div class="form-container">
@@ -26,7 +29,7 @@
             </div>
             <div class="form-inner">
                <form class="login" id="loginForm" onsubmit="return false">
-				  <span id="loginResult"></span>
+                                  <span id="loginResult"></span>
                   <div class="field">
                      <input type="text" id="loginUser" placeholder="Username" required>
                   </div>
@@ -39,11 +42,11 @@
                   </div>
                </form>
                <form class="signup" id="signupForm" onsubmit="return false">
-				  <span id="signupResult"></span>
+                                  <span id="signupResult"></span>
                   <div class="field">
                      <input type="text" id="signupFirstName" placeholder="Your First Name" required>
                   </div>
-				  <div class="field">
+                                  <div class="field">
                      <input type="text" id="signupLastName" placeholder="Your Last Name" required>
                   </div>
                   <div class ="field">
@@ -57,7 +60,7 @@
                   </div>
                   <div class="field btn">
                      <div class="btn-layer"></div>
-                     <input type="submit" value="Signup" onclick="doSignup()">
+		  <input type="submit" value="Signup" onclick="doSignup()">
                   </div>
                </form>
             </div>
@@ -82,7 +85,6 @@
            return false;
          });
       </script>
-	  <script src="/js/code.js"></script>
+          <script src="/js/code.js"></script>
    </body>
 </html>
-                               

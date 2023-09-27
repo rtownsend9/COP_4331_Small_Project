@@ -87,8 +87,8 @@ function doSignup() {
 				let jsonObject = JSON.parse(xhr.responseText);
 				userId = jsonObject.id;
 
-				firstName = firstNameTmp;
-				lastName = lastNameTmp;
+				firstName = jsonObject.firstName;
+				lastName = jsonObject.lastName;
 				saveCookie();
 
 				window.location.href = "contact.html";

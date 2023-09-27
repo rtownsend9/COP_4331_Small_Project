@@ -1,0 +1,424 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is the API documentation for COP4331 Small Project, Twenty Thousand Contacts",
+    "version": "1.0.0",
+    "title": "Twenty Thousand Contacts",
+    "contact": {
+      "email": "ka504062@ucf.edu"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "www.twentythousandcontacts.com",
+  "basePath": "/LAMPAPI",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/Login.php": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Logs in to the application",
+        "description": "Logs in to the application",
+        "operationId": "dlLogin",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "loginItem",
+            "description": "Login",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/Login"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "URL Not Found"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/Register.php": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Adds a user",
+        "description": "Adds a user to the Users database",
+        "operationId": "addUser",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "userItem",
+            "description": "Users",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/Register"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "URL Not Found"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/AddContact.php": {
+      "post": {
+        "tags": [
+          "Contacts"
+        ],
+        "summary": "Creates a user by adding them to the Contacts database",
+        "description": "Creates a user by adding them to the Contacts database",
+        "operationId": "dlAddContact",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "addContactItem",
+            "description": "AddContact",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/AddContact"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "URL Not Found"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/DeleteContact.php": {
+      "post": {
+        "tags": [
+          "Contacts"
+        ],
+        "summary": "Deletes the contact information of a user from the database",
+        "description": "Deletes the contact information of a user from the database",
+        "operationId": "dlDeleteContact",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "deleteContactItem",
+            "description": "DeleteContact",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/DeleteContact"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "URL Not Found"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/SearchContacts.php": {
+      "post": {
+        "tags": [
+          "Contacts"
+        ],
+        "summary": "Searches for the contact information based on data inputted by user",
+        "description": "Searches for the contact information based on data inputted by user",
+        "operationId": "dlSearchContacts",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "SearchContactsItem",
+            "description": "SearchContacts",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/SearchContacts"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "URL Not Found"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/UpdateContacts.php": {
+      "post": {
+        "tags": [
+          "Contacts"
+        ],
+        "summary": "Updates a contact's information in the database",
+        "description": "Updates a contact's information in the database",
+        "operationId": "dlUpdateContacts",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "UpdateContactsItem",
+            "description": "UpdateContacts",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/UpdateContacts"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "URL Not Found"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Login": {
+      "type": "object",
+      "required": [
+        "login",
+        "password"
+      ],
+      "properties": {
+        "login": {
+          "type": "string",
+          "example": "Test"
+        },
+        "password": {
+          "type": "string",
+          "example": "Pass"
+        }
+      }
+    },
+    "Register": {
+      "type": "object",
+      "required": [
+        "firstName",
+        "lastName",
+        "login",
+        "password"
+      ],
+      "properties": {
+        "firstName": {
+          "type": "string",
+          "example": "Richard"
+        },
+        "lastName": {
+          "type": "string",
+          "example": "Leinecker"
+        },
+        "login": {
+          "type": "string",
+          "example": "Test"
+        },
+        "password": {
+          "type": "string",
+          "example": "Pass"
+        }
+      }
+    },
+    "AddContact": {
+      "type": "object",
+      "required": [
+        "email",
+        "firstName",
+        "lastName",
+        "phone",
+        "userID"
+      ],
+      "properties": {
+        "firstName": {
+          "type": "string",
+          "example": "Richard"
+        },
+        "lastName": {
+          "type": "string",
+          "example": "Leinecker"
+        },
+        "phone": {
+          "type": "string",
+          "example": "1234567890"
+        },
+        "email": {
+          "type": "string",
+          "example": "rleinecker@mail.com"
+        },
+        "userID": {
+          "type": "integer",
+          "example": 123
+        }
+      }
+    },
+    "DeleteContact": {
+      "type": "object",
+      "required": [
+        "email",
+        "firstName",
+        "lastName",
+        "phone",
+        "userID"
+      ],
+      "properties": {
+        "firstName": {
+          "type": "string",
+          "example": "Richard"
+        },
+        "lastName": {
+          "type": "string",
+          "example": "Leinecker"
+        },
+        "phone": {
+          "type": "string",
+          "example": "1234567890"
+        },
+        "email": {
+          "type": "string",
+          "example": "rleinecker@mail.com"
+        },
+        "userID": {
+          "type": "integer",
+          "example": 123
+        }
+      }
+    },
+    "SearchContacts": {
+      "type": "object",
+      "required": [
+        "email",
+        "firstName",
+        "lastName",
+        "phone",
+        "userID"
+      ],
+      "properties": {
+        "firstName": {
+          "type": "string",
+          "example": "Richard"
+        },
+        "lastName": {
+          "type": "string",
+          "example": "Leinecker"
+        },
+        "phone": {
+          "type": "string",
+          "example": "1234567890"
+        },
+        "email": {
+          "type": "string",
+          "example": "rleinecker@mail.com"
+        },
+        "userID": {
+          "type": "integer",
+          "example": 123
+        }
+      }
+    },
+    "UpdateContacts": {
+      "type": "object",
+      "required": [
+        "email",
+        "firstName",
+        "lastName",
+        "phone",
+        "userID"
+      ],
+      "properties": {
+        "firstName": {
+          "type": "string",
+          "example": "Richard"
+        },
+        "lastName": {
+          "type": "string",
+          "example": "Leinecker"
+        },
+        "phone": {
+          "type": "string",
+          "example": "1234567890"
+        },
+        "email": {
+          "type": "string",
+          "example": "rleinecker@mail.com"
+        },
+        "userID": {
+          "type": "integer",
+          "example": 123
+        }
+      }
+    }
+  }
+}
